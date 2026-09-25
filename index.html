@@ -109,3 +109,4 @@ document.addEventListener('keydown',e=>{const n=e.target.closest('[data-map-comp
 
 $('export').onclick=()=>{let data=[['Роль','Уровень','Организация',...D.components,'Ограничения'],...rows().map(r=>[nice(r),r.level,r.org,...r.permissions,r.comment])];let text='\uFEFF'+data.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');const u=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download='gis-cap-permissions.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};render();
 </script></body></html>
+
